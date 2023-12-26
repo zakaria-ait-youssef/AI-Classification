@@ -1,0 +1,52 @@
+
+<main style="background-color:white;height:100%;display:flex;justify-content:center;align-items:center;gap:100px">
+	<div>
+		<h2>Formulaire de prédiction de fidélité client</h2>
+		
+		<form action="/home" method="post">
+			{% csrf_token %}
+		
+			<label for="CreditScore">Score de crédit:</label>
+			<input type="number" id="CreditScore" name="CreditScore" required><br>
+		
+			<label for="Tenure">Ancienneté:</label>
+			<input type="number" id="Tenure" name="Tenure" required><br>
+		
+			<label for="NumOfProducts">Nombre de produits:</label>
+			<input type="number" id="NumOfProducts" name="NumOfProducts" required><br>
+		
+			<label for="HasCrCard">Possède une carte de crédit:</label>
+			<select id="HasCrCard" name="HasCrCard" required>
+				<option value="1">Oui</option>
+				<option value="0">Non</option>
+			</select><br>
+		
+			<label for="IsActiveMember">Membre actif:</label>
+			<select id="IsActiveMember" name="IsActiveMember" required>
+				<option value="1">Oui</option>
+				<option value="0">Non</option>
+			</select><br>
+		
+			<label for="Complain">Réclamations:</label>
+			<input type="number" id="Complain" name="Complain" required><br>
+		
+			<label for="SatisfactionScore">Score de satisfaction:</label>
+			<input type="number" id="SatisfactionScore" name="Satisfaction Score" required><br>
+		
+			<label for="PointEarned">Points gagnés:</label>
+			<input type="number" id="PointEarned" name="Point Earned" required><br>
+
+			<label for="EstimatedSalary">Salaire estimé:</label>
+			<input type="number" id="EstimatedSalary" name="EstimatedSalary" required><br>
+
+			<label for="CardType">type de carte</label>
+			<input type="number" id="CardType" name="Card Type" required><br>
+		
+			<input type="submit" value="Prédire la fidélité">
+		</form>
+	</div>
+
+	<h1 style="color:blue">
+		{% if result %}{{ result }}.{% endif %}
+	</h1>
+</main>
